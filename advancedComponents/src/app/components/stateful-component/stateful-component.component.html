@@ -1,0 +1,44 @@
+<div class="container">
+  <section class="section">
+    <h1 class="title">PRODUCTS</h1>
+    <div class="columns">
+      <div class="column" *ngFor="let item of storeModel.storeItems">
+        <app-stateless-component
+          [item]="item"
+          (itemClicked)="selectItem($event)"
+        ></app-stateless-component>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div *ngIf="purchasedItems.length > 0">
+      <div class="columns">
+        <nav class="panel is-three-quarter column">
+          <p class="panel-heading">Order Detail</p>
+
+          <div class="panel-block" *ngFor="let item of purchasedItems">
+            <span class="my-title">
+              {{ item.title }}
+            </span>
+            <span class="price">
+              {{ item.price | currency}}
+            </span>
+          </div>
+        </nav>
+      </div>
+
+      <div class="columns">
+        <div class="column is-fullwidth">
+          <div class="is-pulled-right">
+            <div class="is-one-quarter">
+              <h2 class="title">Total {{total | currency}}</h2>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
