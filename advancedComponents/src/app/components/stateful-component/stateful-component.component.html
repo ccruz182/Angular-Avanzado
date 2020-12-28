@@ -22,7 +22,7 @@
               {{ item.title }}
             </span>
             <span class="price">
-              {{ item.price | currency}}
+              {{ item.price | currency }}
             </span>
           </div>
         </nav>
@@ -32,13 +32,23 @@
         <div class="column is-fullwidth">
           <div class="is-pulled-right">
             <div class="is-one-quarter">
-              <h2 class="title">Total {{total | currency}}</h2>
+              <h2 class="title">Total {{ total | currency }}</h2>
             </div>
           </div>
+        </div>
+      </div>
 
+      <div class="columns">
+        <div class="column is-fullwidth">
+          <div class="is-pulled-right">
+            <div class="is-one-quarter">
+              <button class="button is-danger" (click)="pay()">BUY NOW</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
   </section>
 </div>
+
+<app-alert-confirmation></app-alert-confirmation>

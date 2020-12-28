@@ -1,7 +1,7 @@
 <div class="is-one-quarter">
   <div class="card">
     <div class="image is-4by3">
-      <img src="assets/products/{{ item.image }}" />
+      <img src="assets/products/{{ item.image }}" (click)="showMenu()" (contextmenu)="onRightClick()"/>
     </div>
 
     <div class="card-content">
@@ -12,10 +12,21 @@
         class="button is-fullwidth is-small is-danger"
         (click)="selectItem(item)"
         [disabled]="disabled"
-        [ngClass]="{'is-danger': !disabled}"
+        [ngClass]="{ 'is-danger': !disabled }"
       >
         {{ purchaseAction }}
       </button>
     </div>
+
+    <article class="message my-message" [ngClass]="{'invisible': menuInvisibility}">
+      <div class="message-header">
+        <p>{{ item.title }}</p>
+      </div>
+      <div class="message-body">
+        {{ item.price | currency }}
+      </div>
+    </article>
   </div>
 </div>
+
+

@@ -14,18 +14,30 @@ export class StatelessComponentComponent implements OnInit {
 
   disabled: boolean;
   purchaseAction: string;
+  menuInvisibility: boolean;
 
   constructor() {
   }
 
   ngOnInit(): void {
     this.purchaseAction = `BUY FOR $${this.item.price}`
+    this.menuInvisibility = true
   }
 
   selectItem = (item: Product) => {
     this.disabled = true;
     this.purchaseAction = 'ALREADY IN CART';
     this.itemClicked.emit(item);
+  }
+
+  showMenu = () => {
+    this.menuInvisibility = true;
+  }
+
+  onRightClick = () => {
+    this.menuInvisibility = false;
+
+    return false; // Prevent showing the contextual menu.
   }
 
 }

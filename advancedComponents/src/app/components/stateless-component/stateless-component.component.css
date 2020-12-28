@@ -1,0 +1,9 @@
+.invisible {
+  display: none;
+}
+
+.my-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
