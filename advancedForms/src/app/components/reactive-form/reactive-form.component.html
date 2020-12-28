@@ -1,0 +1,48 @@
+<div class="container">
+  <form [formGroup]="form" novalidate>
+    <div class="field">
+      <label class="label">Name</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          placeholder="Text input"
+          name="name"
+          formControlName="name"
+        />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Username</label>
+      <div class="control has-icons-left has-icons-right">
+        <input
+          class="input"
+          [ngClass]="{'is-success': form.get('username').valid, 'is-danger': form.get('username').touched && !form.get('username').valid}"
+          type="text"
+          placeholder="Text input"
+          name="username"
+          formControlName="username"
+        />
+        <span class="icon is-small is-left">
+          <i class="fas fa-user"></i>
+        </span>
+        <span class="icon is-small is-right has-text-success" *ngIf="form.get('username').touched && form.get('username').valid">
+          <i class="fas fa-check"></i>
+        </span>
+        <span class="icon is-small is-right has-text-danger" *ngIf="form.get('username').touched && !form.get('username').valid">
+          <i class="fa fa-exclamation-circle"></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button is-link" [disabled]="!form.valid">Submit</button>
+      </div>
+      <div class="control">
+        <button class="button is-link is-light">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
